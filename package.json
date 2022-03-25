@@ -1,0 +1,72 @@
+{
+  "version": "0.20220119.0",
+  "license": "Apache-2.0",
+  "main": "./dist/src/index.js",
+  "typings": "./dist/src/index.d.ts",
+  "files": [
+    "dist/src/*",
+    "LICENSE",
+    "LICENSE_NOTICE"
+  ],
+  "scripts": {
+    "clean": "shx rm -rf dist",
+    "build": "tsc",
+    "pretest": "npm run build",
+    "test": "jest",
+    "lint": "eslint src/**/*.ts test/**/*.ts",
+    "typedoc": "typedoc src",
+    "posttypedoc": "make -C docs install"
+  },
+  "name": "bcc-launcher",
+  "author": "TBCO",
+  "repository": "github:The-Blockchain-Company/bcc-launcher",
+  "bin": {
+    "bcc-launcher": "bin/bcc-launcher"
+  },
+  "devDependencies": {
+    "@jest/reporters": "27.3.1",
+    "@types/fs-extra": "9.0.13",
+    "@types/jest": "27.0.2",
+    "@types/lodash": "4.14.176",
+    "@types/mkdirp": "1.0.2",
+    "@types/node": "16.11.6",
+    "@types/tmp": "0.2.2",
+    "@typescript-eslint/eslint-plugin": "5.2.0",
+    "@typescript-eslint/parser": "5.2.0",
+    "axios": "0.24.0",
+    "eslint": "8.1.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-config-standard": "16.0.3",
+    "eslint-plugin-import": "2.25.2",
+    "eslint-plugin-jest": "25.2.2",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-promise": "5.1.1",
+    "eslint-plugin-standard": "5.0.0",
+    "eslint-watch": "7.0.0",
+    "fs-extra": "10.0.0",
+    "husky": "7.0.4",
+    "jest": "27.3.1",
+    "npm-check-updates": "11.8.5",
+    "prettier": "2.4.1",
+    "shx": "0.3.3",
+    "tmp-promise": "3.0.3",
+    "ts-jest": "27.0.7",
+    "typedoc": "0.22.7",
+    "typescript": "4.4.4"
+  },
+  "dependencies": {
+    "chalk": "4.1.2",
+    "get-port": "5.1.1",
+    "lodash": "4.17.21",
+    "mkdirp": "1.0.4",
+    "tsee": "1.3.2"
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "arrowParens": "avoid"
+  }
+}

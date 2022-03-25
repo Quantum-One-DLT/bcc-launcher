@@ -1,0 +1,57 @@
+msc {
+  hscale = "2";
+  klarity, bcc_launcher, bcc_wallet, bcc_node;
+
+  |||;
+
+  klarity rbox klarity [ label = "User runs Klarity Frontend" ];
+  klarity=>bcc_launcher [ label = "var wallet = new Launcher(config);" ];
+
+  # bcc_launcher=>bcc_launcher [ label = "create socket file" ]; ## todo
+  bcc_launcher=>bcc_launcher [ label = "find a free TCP port" ];
+
+  bcc_launcher=>bcc_wallet [ label = "spawn bcc-wallet cli" ];
+  bcc_launcher=>bcc_node [ label = "spawn bcc-node cli" ];
+
+  ---;
+
+  
+  bcc_launcher box bcc_launcher [ label = "poll TCP port until connection accepted" ];
+  bcc_launcher=>bcc_launcher [ label = "sock.connect()" ];
+  bcc_launcher->klarity [ label = "wallet is ready event" ];
+
+  ...;
+
+  klarity=>bcc_wallet [ label = "GET /v2/wallets" ];
+  klarity<<bcc_wallet [ label = "200 OK" ];
+
+  ...;
+
+  bcc_wallet->bcc_node [ label = "Find intersection" ];
+  bcc_wallet<-bcc_node [ label = "Intersection is ..." ];
+
+  ...;
+
+  klarity=>bcc_wallet [ label = "GET /v2/network/information (polling)" ];
+  klarity<<bcc_wallet [ label = "200 OK" ];
+
+  ...;
+  |||;
+
+  klarity rbox klarity [ label = "User exits Klarity Frontend" ];
+  klarity=>bcc_launcher [ label = "var promise = wallet.stop();" ];
+  bcc_launcher=>bcc_wallet [ label = "close handle of stdin" ];
+  bcc_launcher=>bcc_node [ label = "close handle of shutdown notifier" ];
+  
+  bcc_wallet box bcc_wallet [ label = "shut down" ];
+  bcc_wallet->bcc_launcher [ label = "exit status 0" ];
+  bcc_launcher->klarity [ label = "wallet backend status changed event" ];
+
+  bcc_node box bcc_node [ label = "shut down" ];
+  bcc_node->bcc_launcher [ label = "exit status 0" ];
+  bcc_launcher->klarity [ label = "node status changed event" ];
+
+  klarity<<bcc_launcher [ label = "promise is completed" ];
+  klarity box bcc_launcher [ label = "shut down" ];
+
+}

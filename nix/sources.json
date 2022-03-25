@@ -1,0 +1,27 @@
+{
+    "bcc-wallet": {
+        "branch": "master",
+        "description": "Official Wallet Backend & API for Bcc decentralized",
+        "homepage": null,
+        "owner": "The-Blockchain-Company",
+        "repo": "bcc-wallet",
+        "rev": "v2022-01-18",
+        "sha256": "1apzfy7qdgf6l0lb3icqz3rvaq2w3a53xq6wvhqnbfi8i7cacy03",
+        "type": "tarball",
+        "url": "https://github.com/The-Blockchain-Company/bcc-wallet/archive/v2022-01-18.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
+        "version": "v2022-01-18"
+    },
+    "nixpkgs": {
+        "branch": "nixpkgs-20.09-darwin",
+        "description": "A read-only mirror of NixOS/nixpkgs tracking the released channels. Send issues and PRs to",
+        "homepage": "https://github.com/NixOS/nixpkgs",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "08327493801e12217891826604c2812e7f48eb28",
+        "sha256": "1dwgf2jr8p392hqv0fmnngna6a755qg67qxvz2qnp7mhbqy2aggv",
+        "type": "tarball",
+        "url": "https://github.com/NixOS/nixpkgs/archive/08327493801e12217891826604c2812e7f48eb28.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    }
+}

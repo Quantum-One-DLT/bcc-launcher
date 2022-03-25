@@ -1,0 +1,6 @@
+#!/usr/bin/env node
+
+// Copyright © 2022 TBCO
+// License: Apache-2.0
+
+require('../dist/src/cli');
