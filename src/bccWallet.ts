@@ -70,8 +70,8 @@ export interface LaunchConfig {
    * This is only useful in testing scenarios, or when running a local
    * development testnet.
    *
-   * For Jörmungandr ITN, the default is
-   * https://github.com/bcc-foundation/incentivized-testnet-stakepool-registry/archive/master.zip.
+   * For Quibitous ITN, the default is
+   * https://github.com/the-blockchain-company/incentivized-testnet-stakepool-registry/archive/master.zip.
    */
   stakePoolRegistryUrl?: string;
 
